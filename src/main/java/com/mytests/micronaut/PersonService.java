@@ -1,8 +1,6 @@
 package com.mytests.micronaut;
 
-import io.micronaut.cache.annotation.CacheInvalidate;
-import io.micronaut.cache.annotation.CachePut;
-import io.micronaut.cache.annotation.Cacheable;
+import io.micronaut.cache.annotation.*;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -18,11 +16,12 @@ import java.util.concurrent.TimeUnit;
  */
 @Singleton
 public class PersonService {
-    
-    @Inject PersonsRepository repository;
-    
-    @Cacheable({"admins","users","persons"})
-    public List<Person> getPersons(){
+
+    @Inject
+    PersonsRepository repository;
+
+    @Cacheable({"admins", "users", "persons"})
+    public List<Person> getPersons() {
         try {
             TimeUnit.SECONDS.sleep(3);
             System.out.println("===============");
@@ -33,18 +32,30 @@ public class PersonService {
             return null;
         }
     }
-    @CachePut({"persons"})
-    public List<Person> updateAndGet(String name, String role){
-       
-        repository.addPerson(name,role);
-        
+
+    @PutOperations(
+            @CachePut({"persons"})
+    )
+    public List<Person> updateAndGet(String name, String role) {
+
+        repository.addPerson(name, role);
+
         return repository.getAll();
     }
-    
+
     @CacheInvalidate("persons")
     @CacheInvalidate("users")
     @CacheInvalidate("admins")
-    public void removeCaches(){
+    public void removeCaches() {
+        System.out.println("!!!! all caches removed !!!!");
+    }
+
+    @InvalidateOperations(value = {
+            @CacheInvalidate(cacheNames = {"persons"}),
+            @CacheInvalidate({"users"}),
+            @CacheInvalidate(value = "admins")
+    })
+    public void removeCaches2() {
         System.out.println("!!!! all caches removed !!!!");
     }
 }
