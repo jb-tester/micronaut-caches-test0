@@ -19,6 +19,11 @@ GET http://localhost:8080/users/katya
 GET http://localhost:8080/users/tanya
 
 ###
+GET http://localhost:8080/admins/vera
+
+###
+GET http://localhost:8080/admins
+###
 
 GET http://localhost:8080/remove
 
