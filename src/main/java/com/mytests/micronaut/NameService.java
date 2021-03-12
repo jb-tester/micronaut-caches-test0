@@ -39,7 +39,7 @@ public class NameService {
             return null;
         }
     }
-    @CachePut(value = {"names"}, parameters = "role")
+    @CachePut(value = {"names"}, parameters = {"role"})
     public List<String> updateAndGet(String name, String role){
        
         repository.addPerson(name,role);
