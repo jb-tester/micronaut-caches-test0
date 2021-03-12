@@ -1,3 +1,6 @@
+my:
+  cache:
+    name1: admins
 micronaut:
   application:
     name: micronautCachesTest0

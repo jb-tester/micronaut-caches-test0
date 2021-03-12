@@ -20,7 +20,7 @@ public class AdminService {
     
     @Inject PersonsRepository repository;
     
-    @Cacheable({"admins"})
+    @Cacheable({"${my.cache.name1}"})
     public List<Person> getAdmins(){
         List<Person> admins = new ArrayList<>();
         try {
