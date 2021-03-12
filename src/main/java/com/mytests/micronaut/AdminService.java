@@ -38,7 +38,9 @@ public class AdminService {
             return null;
         }
     }
-    @CachePut({"admins"})
+    
+    //@CachePut({"admins"})
+    @AdminsCachePut
     public List<Person> updateAndGet(String name){
         List<Person> admins = new ArrayList<>();
         repository.addPerson(name,"admin");
