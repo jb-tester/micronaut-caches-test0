@@ -1,0 +1,35 @@
+###
+GET http://localhost:8080/persons
+
+###
+GET http://localhost:8080/persons/dima/admin
+
+###
+
+GET http://localhost:8080/persons/anya/user
+
+
+###
+GET http://localhost:8080/users
+
+###
+GET http://localhost:8080/users/katya
+
+###
+GET http://localhost:8080/users/tanya
+
+###
+
+GET http://localhost:8080/remove
+
+###
+GET http://localhost:8080/names/admin
+
+###
+GET http://localhost:8080/names/irina/admin
+
+###
+GET http://localhost:8080/names/user
+
+###
+GET http://localhost:8080/names/kolya/user

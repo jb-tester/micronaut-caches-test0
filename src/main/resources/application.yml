@@ -1,0 +1,12 @@
+micronaut:
+  application:
+    name: micronautCachesTest0
+  caches:
+    users:
+      maximum-size: 10
+    admins:
+      maximum-size: 10 
+    persons:
+      maximum-size: 10 
+    names:
+      maximum-size: 10      
