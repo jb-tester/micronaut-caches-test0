@@ -46,6 +46,7 @@ public class PersonService {
     @CacheInvalidate("persons")
     @CacheInvalidate("users")
     @CacheInvalidate("admins")
+    @CacheInvalidate("roles")
     public void removeCaches() {
         System.out.println("!!!! all caches removed !!!!");
     }
@@ -53,7 +54,8 @@ public class PersonService {
     @InvalidateOperations(value = {
             @CacheInvalidate(cacheNames = {"persons"}),
             @CacheInvalidate({"users"}),
-            @CacheInvalidate(value = "admins")
+            @CacheInvalidate(value = "admins"),
+            @CacheInvalidate(value = "roles")
     })
     public void removeCaches2() {
         System.out.println("!!!! all caches removed !!!!");

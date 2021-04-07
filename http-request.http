@@ -38,3 +38,12 @@ GET http://localhost:8080/names/user
 
 ###
 GET http://localhost:8080/names/kolya/user
+
+###
+GET http://localhost:8080/roles/all
+
+###
+GET http://localhost:8080/roles/add/anton/supervisor
+
+###
+GET http://localhost:8080/roles/add/antonina/manager
